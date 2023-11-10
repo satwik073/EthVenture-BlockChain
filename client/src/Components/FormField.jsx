@@ -7,10 +7,15 @@ const FormField = ({LabelName , placeholder , value , inputType , issTextArea , 
             <span className="font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">{LabelName}</span>
         )}
         {issTextArea ? (
-            <textarea/>
+            <textarea required value={value} onChange={handleChange} type={inputType} 
+            rows={10}
+            placeholder={placeholder}
+            className='py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent text-white text-[14px] placeholder:text-[#4b5264]  rounded-[10px] sm:min-w-[300px]'/>
         ):(
             <input required value={value} onChange={handleChange} type={inputType} 
-            step="0.1"/>
+            step="0.1"
+            placeholder={placeholder}
+            className='py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent text-white text-[14px] placeholder:text-[#4b5264]  rounded-[10px] sm:min-w-[300px]'/>
         )}
     </label>
   )

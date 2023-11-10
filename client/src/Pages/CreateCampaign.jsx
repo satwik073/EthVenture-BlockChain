@@ -16,6 +16,9 @@ const CreateCampaign = () => {
     deadline: '',
     image: '',
   });
+  const handleFormFieldChange=(fieldname,e)=>{
+    setForm({...form , [fieldname]: e.target.value});
+  }
   const handleSubmit=()=>{
 
   }
@@ -31,14 +34,46 @@ const CreateCampaign = () => {
           placeholder ="Satwik Kanhere"
           inputType ="text"
           value ={form.name}
-          handleChange={()=>{}}/>
+          handleChange={(e)=>handleFormFieldChange('name', e)}/>
           <FormField LabelName ="Campaign Title"
           placeholder ="Write a Title"
           inputType ="text"
           value ={form.title}
-          handleChange={()=>{}}/>
+          handleChange={(e)=>handleFormFieldChange('title', e)}/>
           
           </div> 
+          <div className='mt-[2rem]'>
+          <FormField LabelName ="Story "
+          placeholder ="Write a Story"
+          issTextArea
+          value ={form.description}
+          handleChange={(e)=>handleFormFieldChange('description', e)}
+          />
+          </div>
+
+
+          <div className='mt-[2rem]'>
+          <div className="flex flex-wrap gap-[40px]">
+          <FormField LabelName ="Goal"
+          placeholder ="ETH 0.50"
+          inputType ="text"
+          value ={form.target}
+          handleChange={(e)=>handleFormFieldChange('target', e)}/>
+          <FormField LabelName ="End Date"
+          placeholder ="End Date"
+          inputType ="date"
+          value ={form.deadline}
+          handleChange={(e)=>handleFormFieldChange('deadline', e)}/>
+            <FormField LabelName ="Campaign Image"
+          placeholder ="Place image url of your campaign"
+          inputType ="url"
+          value ={form.image}
+          handleChange={(e)=>handleFormFieldChange('image', e)}/>
+          </div> 
+          <div className="flex justify-center items-center mt-[40px] ">
+            <CustomButton btnType="Submit" title="Submit new Campaign" styles="bg-[#1dc071]" />
+          </div>
+          </div>
         </form>
     </div>
   );
